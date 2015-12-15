@@ -1,4 +1,4 @@
-package tech.bcozo.game.snakegame;
+package tech.bcozo.game.console;
 
 public class Controller {
     public static final int RIGHT = 1;
