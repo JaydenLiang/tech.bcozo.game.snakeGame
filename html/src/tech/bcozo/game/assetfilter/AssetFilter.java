@@ -22,7 +22,8 @@ public class AssetFilter extends DefaultAssetFilter {
     private static final int IGNORE_LIST_INDEX_FULL_NAME = 0;
     private static final int IGNORE_LIST_INDEX_EXTENSION = 1;
     private static final int IGNORE_LIST_INDEX_DIRECTORY = 2;
-    private String[][] ignoreList = { { ".DS_Store" }, { ".svn" }, { ".svn" } };
+    private String[][] ignoreList = { { ".DS_Store", "Thumbs.db" }, { ".svn" },
+            { ".svn" } };
     private PrintWriter out;
 
     /**
