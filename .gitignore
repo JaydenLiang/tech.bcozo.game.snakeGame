@@ -16,6 +16,12 @@ html/war/WEB-INF/classes/
 gwt-unitCache/
 www-test/
 .gwt-tmp/
+webapp/
+build/classes/
+build/dependency-cache/
+build/gwt/
+build/tmp/
+build/dist/WEB-INF/
 
 ## Android Studio and Intellij and Android in general
 android/libs/armeabi/
@@ -65,3 +71,6 @@ build/
 
 ## Windows
 Thumbs.db
+
+## Log files
+AssetFilter.log
