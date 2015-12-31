@@ -2,5 +2,6 @@
 <!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit trunk//EN" "http://google-web-toolkit.googlecode.com/svn/trunk/distro-source/core/src/gwt-module.dtd">
 <module>
 	<source path="tech/bcozo/game/snakegame" />
-	<source path="tech/bcozo/game/console" />
+	<source path="tech/bcozo/game/tools/console" />
+	<source path="tech/bcozo/game/tools/ui" />
 </module>
