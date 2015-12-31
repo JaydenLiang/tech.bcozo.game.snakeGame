@@ -23,9 +23,9 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-import tech.bcozo.game.console.Controller;
-import tech.bcozo.game.console.ScreenText;
-import tech.bcozo.game.console.ScreenText.ScreenTextAlignment;
+import tech.bcozo.game.tools.console.Controller;
+import tech.bcozo.game.tools.ui.ScreenText;
+import tech.bcozo.game.tools.ui.ScreenText.ScreenTextAlignment;
 
 /**
  * <p>
@@ -42,7 +42,8 @@ public class GameScreen extends ScreenAdapter {
     private static final float WORLD_HEIGHT = 480;
     private static final float MOVE_TIME = 0.1F;
     private static final String GAME_TITLE_TEXT = "This Snake Game is AWESOME!";
-    private static final String GAME_OVER_TEXT = "Game Over!!... Tap space to restart!";
+    private static final String GAME_OVER_TEXT =
+            "Game Over!!... Tap space to restart!";
     private static final int POINTS_PER_APPLE = 20;
 
     private boolean debugMode = false;
@@ -59,7 +60,7 @@ public class GameScreen extends ScreenAdapter {
     private float timer;
     private int snakeX;
     private int snakeY;
-    private int snakeDirection;
+    private Controller snakeDirection;
     private boolean appleAvailable;
     private int appleX;
     private int appleY;
@@ -218,16 +219,16 @@ public class GameScreen extends ScreenAdapter {
             snakeXBeforeUpdate = snakeX;
             snakeYBeforeUpdate = snakeY;
             switch (snakeDirection) {
-            case Controller.UP:
+            case UP:
                 snakeY += gridSize;
                 break;
-            case Controller.DOWN:
+            case DOWN:
                 snakeY -= gridSize;
                 break;
-            case Controller.LEFT:
+            case LEFT:
                 snakeX -= gridSize;
                 break;
-            case Controller.RIGHT:
+            case RIGHT:
                 snakeX += gridSize;
                 break;
             default:
@@ -251,25 +252,25 @@ public class GameScreen extends ScreenAdapter {
             do {
                 if (debugMode && placeValid) {
                     switch (snakeDirection) {
-                    case Controller.UP:
+                    case UP:
                         appleX = snakeX;
                         appleY = snakeY + gridSize * 3;
                         if (appleY >= (int) viewport.getWorldHeight())
                             appleY -= (int) viewport.getWorldHeight();
                         break;
-                    case Controller.RIGHT:
+                    case RIGHT:
                         appleX = snakeX + gridSize * 3;
                         appleY = snakeY;
                         if (appleX >= (int) viewport.getWorldWidth())
                             appleX -= (int) viewport.getWorldWidth();
                         break;
-                    case Controller.DOWN:
+                    case DOWN:
                         appleX = snakeX;
                         appleY = snakeY - gridSize * 3;
                         if (appleY < 0)
                             appleY += (int) viewport.getWorldHeight();
                         break;
-                    case Controller.LEFT:
+                    case LEFT:
                         appleX = snakeX - gridSize * 3;
                         appleY = snakeY;
                         if (appleX < 0)
@@ -344,8 +345,8 @@ public class GameScreen extends ScreenAdapter {
         shapeRenderer.setTransformMatrix(camera.view);
         shapeRenderer.begin(ShapeType.Line);
         for (int i = 0; i < (int) viewport.getWorldWidth(); i += gridSize) {
-            for (int j = 0; j < (int) viewport
-                    .getWorldHeight(); j += gridSize) {
+            for (int j = 0; j < (int) viewport.getWorldHeight(); j +=
+                    gridSize) {
                 shapeRenderer.rect(i, j, gridSize, gridSize);
             }
         }
